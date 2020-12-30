@@ -1,10 +1,25 @@
 <template>
-  <div>Dit is de login pagina</div>
+  <p :title="hoverText">{{ hoverInstruction }}</p>
+  <p v-if="showIfText">{{ifText}}</p>
+  <button @click="toggleIfText">{{ btnText }}</button>
 </template>
 
 <script>
 export default {
-  
+  data() {
+      return {
+        hoverText: 'Show this text on hover',
+        hoverInstruction: 'Hover this',
+        showIfText: true,
+        ifText: 'This text is shown conditionally',
+        btnText: 'Toggle text'
+      }
+  },
+  methods:{
+    toggleIfText() {
+      this.showIfText = !this.showIfText
+    }
+  }
 }
 </script>
 
